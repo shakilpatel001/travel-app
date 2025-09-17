@@ -1,0 +1,38 @@
+.navbar {
+  position: relative;
+  height: 6rem;
+  overflow: visible;
+  z-index: 10;
+}
+
+.navbar-nav{
+  margin-right: -5rem;
+  font-size: larger;
+}
+
+.logo {
+  width: 10rem;
+  height: 9rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 6.2rem;
+  left: 2.5rem;
+  transform: translateY(-50%) scale(1);
+  
+  /* New animation */
+  animation: zoomInOut 2s ease-in-out infinite; /* infinite loop */
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.2); 
+  }
+  100% {
+    transform: translateY(-50%) scale(1); 
+  }
+}
