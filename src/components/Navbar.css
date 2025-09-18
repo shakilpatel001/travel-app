@@ -1,0 +1,80 @@
+.navbar {
+  position: relative;
+  height: 6rem;
+  overflow: visible;
+  z-index: 10;
+}
+
+.navbar-nav {
+  margin-right: -5rem;
+  font-size: larger;
+}
+.navbarTextColor{
+    color:#007bff
+}
+
+.logo-wrapper {
+  position: absolute;
+  top: 5.6rem;
+  left: 2.2rem;
+  transform: translateY(-50%);
+  border: 6px solid #007bff; 
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: zoomInOut 3s ease-in-out infinite;
+}
+
+.logo {
+  width: 9rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Same animation applied to wrapper */
+@keyframes zoomInOut {
+  0% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.2);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* ✅ Responsive fixes */
+@media (max-width: 992px) {
+  .navbar {
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-nav {
+    margin-right: 0;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .logo-wrapper {
+    position: static;
+    margin: 0 auto 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: none !important;
+  }
+
+  .logo {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}

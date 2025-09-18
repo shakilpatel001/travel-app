@@ -1,4 +1,4 @@
-/* Image style */
+/* Image style
 /* Move carousel indicators to the left & right sides */
 .carousel-indicators {
   position: absolute;
@@ -168,4 +168,232 @@
 }
 .animate-bounce {
   animation: bounceIn 1.4s ease both;
+} */
+
+
+/* Image style */
+.carousel-indicators {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: 0.5rem; /* Adjusted for mobile */
+  right: 0.5rem;
+  width: auto;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Smaller gap for mobile */
+  justify-content: center;
+  display: none; /* Hidden by default, as in original */
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 10px; /* Smaller indicators for mobile */
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid white; /* Thinner border */
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators .active {
+  background-color: #ff6a00;
+  transform: scale(1.2); /* Slightly smaller scale */
+}
+
+.carousel-img {
+  height: 20rem; /* Reduced height for mobile */
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(60%) contrast(115%) saturate(120%);
+  transition: transform 1.5s ease, filter 0.8s ease;
+}
+
+.carousel-img:hover {
+  transform: scale(1.03); /* Reduced scale for mobile */
+  filter: brightness(70%) contrast(120%) saturate(130%);
+}
+
+/* Glass effect box */
+.glass-box {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px) saturate(150%); /* Slightly reduced blur */
+  padding: 1.5rem; /* Smaller padding */
+  border-radius: 1rem; /* Smaller radius */
+  display: inline-block;
+  max-width: 90%; /* Wider for mobile */
+  margin: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55); /* Smaller shadow */
+  animation: floatUp 1.5s ease forwards;
+}
+
+/* Text style */
+.carousel-title {
+  font-size: 1.8rem; /* Smaller font for mobile */
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(90deg, #ff6a00, #ff3c8e, #9b5dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px; /* Adjusted for readability */
+}
+
+.carousel-desc {
+  font-size: 1rem; /* Smaller font */
+  font-weight: 500;
+  color: #f5f5f5;
+  line-height: 1.4; /* Tighter line height */
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.85);
+  margin-top: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Reduced translation */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px); /* Reduced translation */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9); /* Adjusted for mobile */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px); /* Reduced translation */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px); /* Reduced translation */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05); /* Slightly smaller bounce */
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Utility animation classes */
+.animate-fade-up {
+  animation: fadeInUp 1.2s ease both;
+}
+
+.animate-slide-right {
+  animation: slideRight 1.2s ease both;
+}
+
+.animate-slide-left {
+  animation: slideLeft 1.2s ease both;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 1.2s ease both;
+}
+
+.animate-bounce {
+  animation: bounceIn 1.4s ease both;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  .carousel-img {
+    height: 32rem; /* Original height */
+  }
+
+  .carousel-indicators {
+    left: 1rem; /* Original positioning */
+    right: 1rem;
+    gap: 12px; /* Original gap */
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 14px; /* Original size */
+    height: 14px;
+    border: 2px solid white; /* Original border */
+  }
+
+  .carousel-indicators .active {
+    transform: scale(1.3); /* Original scale */
+  }
+
+  .glass-box {
+    padding: 2.5rem; /* Original padding */
+    border-radius: 1.8rem; /* Original radius */
+    max-width: 75%; /* Original width */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55); /* Original shadow */
+  }
+
+  .carousel-title {
+    font-size: 3.2rem; /* Original font size */
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  .carousel-desc {
+    font-size: 1.6rem; /* Original font size */
+    line-height: 1.6; /* Original line height */
+    margin-top: 0.8rem;
+  }
+
+  .carousel-img:hover {
+    transform: scale(1.05); /* Original scale */
+  }
 }

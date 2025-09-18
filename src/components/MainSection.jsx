@@ -2,6 +2,7 @@ import React from "react";
 import Destinations from "./Destinations";
 import Testimonial from "./Testimonial";
 import BudgetSection from "./BudgetSection";
+import ServicesSection from "./ServicesSection";
 
 const MainSection = () => (
   <main className="bg-white text-center py-3 mt-5">
@@ -15,6 +16,7 @@ const MainSection = () => (
       </p>
     </section>
     <Destinations/>
+    <ServicesSection/>
     <BudgetSection/>
     <Testimonial/>
   </main>

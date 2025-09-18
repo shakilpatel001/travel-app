@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.jpg";
-import "./Footer.css"
+import "./Footer.css";
 
 const Footer = () => {
   const tripImages = [
@@ -29,12 +29,10 @@ const Footer = () => {
               A good plus of traveling is that often you get new skills without
               difficulty and without even noticing it.
             </p>
-            <img
-              src={logo}
-              alt="Logo"
-              className="mt-3"
-              style={{ width: "10rem", height: "9rem", borderRadius: "50%" }}
-            />
+
+            <div className="footer-logo-wrapper mt-3">
+              <img src={logo} alt="Logo" className="footer-logo" />
+            </div>
           </div>
 
           {/* Contacts */}
