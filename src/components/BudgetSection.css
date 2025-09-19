@@ -1,169 +1,59 @@
-/* BudgetSection.css */
-
-.budget-container {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  color: #2d3436;
-  position: relative;
-  padding-bottom: 15px;
-}
-
-.section-title:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #74b9ff, #0984e3);
-  border-radius: 2px;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: #636e72;
-  max-width: 600px;
-  margin: 0 auto;
+.budget-section {
+  background-color: #f8fbff;
 }
 
 .budget-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(13, 110, 253, 0.2);
+  transition: all 0.4s ease;
   position: relative;
-  border-radius: 20px;
-  min-width: 140px;
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  overflow: hidden;
 }
 
 .budget-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 1.5rem 3rem rgba(13, 110, 253, 0.25);
+  border-color: #0d6efd;
 }
 
-.budget-card:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+.budget-card.popular {
+  border: 2px solid #0d6efd;
+  box-shadow: 0 1.5rem 3rem rgba(13, 110, 253, 0.35);
 }
 
-.budget-badge {
-  background: #2d3436;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  margin-bottom: 12px;
+.budget-card .icon {
+  font-size: 3rem;
 }
 
-.budget-price {
-  font-weight: 800;
-  font-size: 1.2rem;
-  margin: 8px 0;
-  color: #2d3436;
+.budget-card hr {
+  border-top: 2px solid #0d6efd33;
+  width: 60%;
+  margin: 0 auto;
 }
 
-.budget-icon {
-  font-size: 1.8rem;
-  margin: 10px 0;
-  color: #2d3436;
-  opacity: 0.9;
-}
-
-.budget-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #636e72;
-  margin-top: 5px;
-}
-
-/* Custom colors with gradient variants */
-.budget-success {
-  --gradient-start: #00b894;
-  --gradient-end: #00a382;
-  background-color: rgba(0, 184, 148, 0.1);
-}
-.budget-success:before {
-  background: linear-gradient(90deg, #00b894, #00a382);
-}
-
-.budget-warning {
-  --gradient-start: #fdcb6e;
-  --gradient-end: #f9a602;
-  background-color: rgba(253, 203, 110, 0.1);
-}
-.budget-warning:before {
-  background: linear-gradient(90deg, #fdcb6e, #f9a602);
-}
-
-.budget-purple {
-  --gradient-start: #a29bfe;
-  --gradient-end: #6c5ce7;
-  background-color: rgba(162, 155, 254, 0.1);
-}
-.budget-purple:before {
-  background: linear-gradient(90deg, #a29bfe, #6c5ce7);
-}
-
-.budget-info {
-  --gradient-start: #74b9ff;
-  --gradient-end: #0984e3;
-  background-color: rgba(116, 185, 255, 0.1);
-}
-.budget-info:before {
-  background: linear-gradient(90deg, #74b9ff, #0984e3);
-}
-
-.budget-primary {
-  --gradient-start: #ff7675;
-  --gradient-end: #e17055;
-  background-color: rgba(255, 118, 117, 0.1);
-}
-.budget-primary:before {
-  background: linear-gradient(90deg, #ff7675, #e17055);
-}
-
-.cta-button {
-  background: linear-gradient(90deg, #2d3436, #636e72);
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(90deg, #636e72, #2d3436);
+.popular-badge {
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 500;
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-  
+@media (max-width: 767px) {
   .budget-card {
-    min-width: 120px;
-    min-height: 160px;
+    padding: 2rem 1.5rem;
   }
-  
-  .budget-price {
-    font-size: 1rem;
+  .budget-card .icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .budget-card {
+    padding: 1.5rem 1rem;
+  }
+  .budget-card .icon {
+    font-size: 2rem;
   }
 }

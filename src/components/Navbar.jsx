@@ -1,11 +1,17 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 import "./Navbar.css";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
+
         {/* Logo */}
         <Link className="navbar-brand" to="/">
           <div className="logo-wrapper">
@@ -13,36 +19,36 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Hamburger button */}
+        {/* Hamburger */}
         <button
-          className="navbar-toggler"
+          className={`navbar-toggler ${isOpen ? "open" : ""}`}
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          onClick={toggleMenu}
           aria-controls="navbarNav"
-          aria-expanded="false"
+          aria-expanded={isOpen}
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="hamburger"></span>
         </button>
 
-        {/* Collapsible menu */}
-        <div className="collapse navbar-collapse" id="navbarNav">
+        {/* Menu */}
+        <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link nav-link fw-normal fs-3 navbarTextColor" to="/">Home</Link>
+              <Link className="nav-link fw-normal fs-1_875 navbarTextColor" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link nav-link fw-normal fs-3 navbarTextColor" to="/about">About</Link>
+              <Link className="nav-link fw-normal fs-1_875 navbarTextColor" to="/about">About</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link nav-link fw-normal fs-3 navbarTextColor" to="/services">Services</Link>
+              <Link className="nav-link fw-normal fs-1_875 navbarTextColor" to="/services">Services</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link nav-link fw-normal fs-3 navbarTextColor" to="/contact">Contact</Link>
+              <Link className="nav-link fw-normal fs-1_875 navbarTextColor" to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
+
       </div>
     </nav>
   );
