@@ -1,0 +1,423 @@
+/* =========================================
+   ORIGINAL CSS (100% UNCHANGED)
+========================================= */
+:root {
+  --bg-color: #F8FAFC;
+  --surface-color: #FFFFFF;
+  --text-color: #1E293B;
+  --muted-text: #64748B;
+  --accent-color: #0EA5E9;
+  --accent-hover: #0284C7;
+  --highlight-color: #FBBF24;
+  --border-color: #E2E8F0;
+  --success-color: #22C55E;
+  --error-color: #EF4444;
+}
+
+/* ---------- SECTION CONTAINER ---------- */
+.destinations-section {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  margin: 4rem auto;
+  padding: 1rem;
+  width: 90%;
+  background: var(--bg-color);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+/* ---------- HEADING ---------- */
+.destinations-section h2 {
+  font-weight: 800;
+  font-size: 2.6rem;
+  color: var(--accent-color);
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Underline decoration */
+.destinations-section h2::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  border-radius: 10px;
+  background: var(--accent-color);
+  margin: 0.75rem auto 0;
+}
+
+/* ---------- CARD CONTAINER ---------- */
+.destination-card {
+  transition: all 0.4s ease;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--surface-color);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+}
+
+.destination-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- IMAGE ---------- */
+.destination-img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.destination-card:hover .destination-img {
+  transform: scale(1.1);
+}
+
+/* ---------- OVERLAY ---------- */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 41, 59, 0.45);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease;
+}
+
+.destination-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: var(--surface-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- BOTTOM LABEL ---------- */
+.destination-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.6rem;
+  background: rgba(30, 41, 59, 0.6);
+  color: var(--surface-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* ---------- DISCOUNT BADGE ---------- */
+.discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--accent-color);
+  color: var(--surface-color);
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- CARD BODY ---------- */
+.destination-body {
+  padding: 1rem 1rem 1.2rem;
+  background: rgba(248, 250, 252, 0.8);
+  border-top: 1px solid var(--border-color);
+}
+
+/* ---------- PACKAGE LINE ---------- */
+.package-line {
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.package-line:hover {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+/* ---------- TYPEWRITER ---------- */
+.typewriter-text {
+  color: var(--highlight-color);
+  font-weight: 700;
+}
+
+.smooth-cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 1s infinite;
+  color: var(--highlight-color);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES ONLY (ADDED)
+   No changes to your original CSS
+========================================= */
+
+@media (max-width: 1200px) {
+  .destinations-section {
+    width: 92%;
+    padding: 4.5rem 0;
+  }
+
+  .destinations-section h2 {
+    font-size: 2.4rem;
+  }
+
+  .destinations-section h2::after {
+    width: 110px;
+  }
+}
+
+@media (max-width: 992px) {
+  .destinations-section {
+    width: 95%;
+    border-radius: 1.5rem;
+    padding: 4rem 1rem;
+    margin: 3.5rem auto;
+  }
+
+  .destinations-section h2 {
+    font-size: 2.1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .destinations-section h2::after {
+    width: 100px;
+    height: 3.5px;
+  }
+
+  .destination-img {
+    height: 210px;
+  }
+
+  .destination-label {
+    font-size: 1.05rem;
+    padding: 0.55rem;
+  }
+
+  .discount-badge {
+    font-size: 0.82rem;
+    padding: 0.3rem 0.7rem;
+    top: 10px;
+    left: 10px;
+  }
+
+  .overlay-text {
+    font-size: 1.05rem;
+  }
+
+  .destination-body {
+    padding: 0.9rem 0.9rem 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .destinations-section {
+    width: 96%;
+    border-radius: 1.25rem;
+    padding: 3.5rem 0.75rem;
+    margin: 3rem auto;
+  }
+
+  .destinations-section h2 {
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .destinations-section h2::after {
+    width: 90px;
+    height: 3px;
+  }
+
+  .destination-img {
+    height: 200px;
+  }
+
+  .destination-card {
+    border-radius: 0.875rem;
+  }
+
+  .destination-label {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .discount-badge {
+    font-size: 0.8rem;
+    padding: 0.28rem 0.65rem;
+    top: 8px;
+    left: 8px;
+  }
+
+  .overlay-text {
+    font-size: 1rem;
+  }
+
+  .destination-body {
+    padding: 0.8rem;
+  }
+
+  .package-line {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .destinations-section {
+    width: 97%;
+    border-radius: 1rem;
+    padding: 3rem 0.5rem;
+    margin: 2.5rem auto;
+  }
+
+  .destinations-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .destinations-section h2::after {
+    width: 80px;
+    height: 3px;
+  }
+
+  .destination-img {
+    height: 180px;
+  }
+
+  .destination-card {
+    border-radius: 0.75rem;
+  }
+
+  .destination-label {
+    font-size: 0.95rem;
+    padding: 0.45rem;
+  }
+
+  .discount-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    top: 7px;
+    left: 7px;
+  }
+
+  .overlay-text {
+    font-size: 0.95rem;
+  }
+
+  .destination-body {
+    padding: 0.7rem;
+  }
+
+  .package-line {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .destinations-section {
+    width: 98%;
+    border-radius: 0.875rem;
+    padding: 2.5rem 0.4rem;
+    margin: 2rem auto;
+  }
+
+  .destinations-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .destinations-section h2::after {
+    width: 70px;
+  }
+
+  .destination-img {
+    height: 160px;
+  }
+
+  .destination-label {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+
+  .discount-badge {
+    font-size: 0.72rem;
+    padding: 0.22rem 0.55rem;
+  }
+
+  .overlay-text {
+    font-size: 0.9rem;
+  }
+
+  .destination-body {
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .destinations-section {
+    padding: 2rem 0.3rem;
+    margin: 1.75rem auto;
+  }
+
+  .destinations-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .destinations-section h2::after {
+    width: 65px;
+  }
+
+  .destination-img {
+    height: 150px;
+  }
+
+  .destination-label {
+    font-size: 0.85rem;
+    padding: 0.35rem;
+  }
+
+  .discount-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    top: 6px;
+    left: 6px;
+  }
+
+  .overlay-text {
+    font-size: 0.85rem;
+  }
+
+  .destination-body {
+    padding: 0.55rem;
+  }
+
+  .package-line {
+    font-size: 0.85rem;
+  }
+}
+
+/* Dark mode responsive consistency */
+@media (max-width: 768px) {
+  body.dark .card-overlay {
+    background: rgba(15, 23, 42, 0.55);
+  }
+
+  body.dark .destination-label {
+    background: rgba(15, 23, 42, 0.7);
+  }
+}

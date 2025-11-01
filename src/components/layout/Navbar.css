@@ -1,0 +1,338 @@
+/* =========================================
+   THEME VARIABLES
+========================================= */
+:root {
+  --bg-color: #f8fafc;
+  --surface-color: rgba(255, 255, 255, 0.75);
+  --text-color: #1e293b;
+  --muted-text: #64748b;
+  --accent-color: #0d6efd;
+  --accent-hover: #0b5ed7;
+  --border-color: rgba(255, 255, 255, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/* ===== Base Navbar (Glassy Look) ===== */
+.navbar {
+  width: 100%;
+  z-index: 1000;
+  background: var(--surface-color);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition: all 0.3s ease-in-out;
+}
+
+/* ===== When Scrolled ===== */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(18px);
+}
+
+/* ===== Container Layout ===== */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  overflow: hidden;
+}
+
+/* ===== Logo (Keep Original Size) ===== */
+.logo {
+  height: 9.5rem;  /* Your original size retained */
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  mix-blend-mode: multiply;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Nav Links ===== */
+.navbar-nav .nav-link {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color) !important;
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--accent-color) !important;
+  transform: translateY(-2px);
+}
+
+/* ===== Underline Animation ===== */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* ===== Active Link ===== */
+.navbar-nav .nav-link.active {
+  color: var(--accent-color) !important;
+}
+
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== Theme Toggle Button ===== */
+.btn-outline-primary,
+.btn-outline-light {
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.45rem 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Light mode button */
+.btn-outline-primary {
+  color: var(--accent-color);
+  border: 1.5px solid var(--accent-color);
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background: var(--accent-hover);
+  color: #fff !important;
+  box-shadow: 0 0 12px rgba(13, 110, 253, 0.35);
+}
+
+/* Dark mode button */
+.btn-outline-light {
+  color: #fff;
+  border: 1.5px solid #fff;
+  background: transparent;
+}
+
+body.dark .btn-outline-light:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Mobile Menu (Dropdown Style) ===== */
+@media (max-width: 992px) {
+  .nav-container {
+    height: auto;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    border-radius: 1rem;
+    margin-top: 0.8rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    animation: slideDown 0.3s ease;
+  }
+
+  body.dark .navbar-collapse {
+    background: rgba(30, 41, 59, 0.95);
+  }
+
+  .navbar-nav {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 1.1rem;
+  }
+}
+
+/* ===== Slide Down Animation ===== */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Dark Mode Enhancements ===== */
+body.dark .navbar {
+  background: rgba(15, 23, 42, 0.85);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+}
+
+body.dark .nav-link {
+  color: #f8fafc !important;
+}
+
+body.dark .nav-link:hover {
+  color: var(--accent-color) !important;
+}
+
+body.dark .nav-link::after {
+  background: var(--accent-color);
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES ONLY
+   (Added below — no changes to your original CSS)
+========================================= */
+
+@media (max-width: 992px) {
+  .nav-container {
+    height: auto;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    height: 7rem;
+  }
+
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 1rem;
+    margin-top: 0.8rem;
+    padding: 1rem 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    animation: slideDown 0.3s ease;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 1.05rem;
+  }
+
+  .navbar-nav .nav-link::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar-nav .nav-link:hover::after,
+  .navbar-nav .nav-link.active::after {
+    width: 40px;
+  }
+
+  .btn-outline-primary,
+  .btn-outline-light {
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+
+  body.dark .navbar-collapse {
+    background: rgba(15, 23, 42, 0.95);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 6rem;
+  }
+
+  .nav-container {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 0.7rem 0;
+  }
+
+  .navbar-nav .nav-link:hover::after,
+  .navbar-nav .nav-link.active::after {
+    width: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    height: 5.5rem;
+  }
+
+  .nav-container {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .navbar-collapse {
+    margin-top: 0.6rem;
+    border-radius: 0.8rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.95rem;
+    padding: 0.65rem 0;
+  }
+
+  .navbar-nav .nav-link:hover::after,
+  .navbar-nav .nav-link.active::after {
+    width: 32px;
+  }
+
+  .btn-outline-primary,
+  .btn-outline-light {
+    font-size: 0.9rem;
+    padding: 0.55rem 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo {
+    height: 5rem;
+  }
+
+  .nav-container {
+    padding: 0.25rem 0.4rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+    padding: 0.6rem 0;
+  }
+
+  .navbar-nav .nav-link:hover::after,
+  .navbar-nav .nav-link.active::after {
+    width: 28px;
+  }
+}
+
+/* Dark mode mobile collapse (consistent) */
+@media (max-width: 992px) {
+  body.dark .navbar-collapse {
+    background: rgba(15, 23, 42, 0.95);
+  }
+}

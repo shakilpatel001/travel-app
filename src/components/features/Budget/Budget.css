@@ -1,0 +1,251 @@
+:root {
+  /* Light Mode Colors */
+  --bg-color: #F8FAFC;
+  /* Light sky gray background */
+  --surface-color: #FFFFFF;
+  /* Cards / panels */
+  --text-color: #1E293B;
+  /* Deep navy text */
+  --muted-text: #64748B;
+  /* Secondary gray text */
+  --accent-color: #0EA5E9;
+  /* Ocean blue */
+  --accent-hover: #0284C7;
+  /* Deeper blue on hover */
+  --highlight-color: #FBBF24;
+  /* Warm sun yellow */
+  --border-color: #E2E8F0;
+  /* Soft border gray */
+  --success-color: #22C55E;
+  /* Success / booking */
+  --error-color: #EF4444;
+  /* Error / validation */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  /* Dark Mode Colors */
+  --bg-color-dark: rgba(30, 41, 59, 0.7);
+  --surface-color-dark: rgba(30, 41, 59, 0.85);
+  --muted-text-dark: #CBD5E1;
+  --shadow-color-dark: rgba(14, 165, 233, 0.2);
+}
+
+/* ===== Budget Section ===== */
+.budget-section {
+  background: var(--bg-color);
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 1rem;
+  border-radius: 2rem;
+  width: 90%;
+  margin: 0rem auto;
+  box-shadow: 0 20px 60px var(--shadow-color);
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.budget-heading {
+  color: var(--accent-color);
+}
+
+.budget-hightlight {
+  color: var(--highlight-color);
+}
+
+/* Section heading */
+.budget-section h2 {
+  color: var(--accent-color);
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.budget-section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 0.5rem auto 0;
+  background-color: var(--accent-color);
+  border-radius: 10px;
+}
+
+/* Budget Cards */
+.budget-card {
+  background: var(--surface-color);
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 25px var(--shadow-color);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.budget-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px var(--shadow-color);
+}
+
+/* Popular card highlight */
+.popular-card {
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Icons */
+.icon-wrapper {
+  background: var(--bg-color);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem auto;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.budget-card:hover .icon-wrapper {
+  transform: rotate(8deg) scale(1.1);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.icon-wrapper i {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+}
+
+/* Card titles and price */
+.budget-card h4 {
+  font-weight: 700;
+  margin-top: 0.5rem;
+  color: var(--text-color);
+}
+
+.budget-card h2 {
+  font-size: 2rem;
+  color: var(--accent-color);
+  font-weight: 800;
+  margin: 0.5rem 0;
+}
+
+.budget-card ul {
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.budget-card ul li {
+  list-style: none;
+  font-size: 0.95rem;
+  color: var(--muted-text);
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.budget-card ul li:hover {
+  transform: translateX(5px);
+  color: var(--accent-color);
+}
+
+/* Buttons */
+.btn-glass {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  padding: 0.6rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.btn-glass:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .budget-section {
+    width: 95%;
+    border-radius: 1.5rem;
+    padding: 4rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .budget-card {
+    padding: 2rem 1rem;
+  }
+
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon-wrapper i {
+    font-size: 1.8rem;
+  }
+
+  .budget-card h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .budget-card h4 {
+    font-size: 1rem;
+  }
+
+  .budget-card ul li {
+    font-size: 0.85rem;
+  }
+
+  .btn-glass {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Dark Mode */
+body.dark .budget-section {
+  background: var(--bg-color-dark);
+  box-shadow: 0 20px 60px var(--shadow-color-dark);
+}
+
+body.dark .budget-card {
+  background: var(--surface-color-dark);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 25px var(--shadow-color-dark);
+}
+
+body.dark .budget-card h4,
+body.dark .budget-card ul li {
+  color: var(--muted-text-dark);
+}
+
+body.dark .btn-glass {
+  box-shadow: 0 5px 15px var(--shadow-color-dark);
+}

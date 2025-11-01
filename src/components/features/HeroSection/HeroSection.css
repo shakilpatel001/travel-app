@@ -1,0 +1,176 @@
+/* -------------------------------------------------
+   1. ROOT VARIABLES (unchanged)
+------------------------------------------------- */
+:root {
+  --bg-color: #F8FAFC;
+  --surface-color: #FFFFFF;
+  --text-color: #1E293B;
+  --muted-text: #64748B;
+  --accent-color: #0EA5E9;
+  --accent-hover: #0284C7;
+  --highlight-color: #A855F7;
+  --border-color: #E2E8F0;
+  --shadow-color: rgba(14, 165, 233, 0.3);
+}
+
+/* -------------------------------------------------
+   2. BASE HERO (mobile-first)
+------------------------------------------------- */
+.hero-section {
+  position: relative;
+  padding: 4rem 1rem 3.5rem;          /* smaller on phones */
+  margin: 2rem 1rem;                  /* safe side margins */
+  max-width: 1000px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  overflow: hidden;
+
+  /* Glass-morphism */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 1.5rem;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.05),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* subtle overlay */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 165, 233, 0.03);
+  z-index: 0;
+}
+
+/* content wrapper */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* -------------------------------------------------
+   3. TYPOGRAPHY (fluid scaling)
+------------------------------------------------- */
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 500;
+  color: var(--accent-color);
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin: 0.5rem 0 1rem;
+  line-height: 1.2;
+}
+.hero-title .highlight { color: var(--highlight-color); }
+
+.hero-text {
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  color: var(--muted-text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* -------------------------------------------------
+   4. DIVIDER & BUTTON
+------------------------------------------------- */
+.hero-divider {
+  width: clamp(60px, 15vw, 100px);
+  height: 4px;
+  background: var(--accent-color);
+  margin: 1.5rem auto;
+  border-radius: 10px;
+}
+
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1.5rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  cursor: pointer;
+}
+.btn-glass:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+}
+
+/* -------------------------------------------------
+   5. RESPONSIVE BREAKPOINTS
+------------------------------------------------- */
+
+/* Tablet (≥576px) */
+@media (min-width: 576px) {
+  .hero-section {
+    padding: 5rem 1.5rem 4rem;
+    margin: 3rem 1.5rem;
+  }
+}
+
+/* Small desktop (≥768px) */
+@media (min-width: 768px) {
+  .hero-section {
+    padding: 6rem 2rem 5rem;
+    margin: 4rem auto;
+  }
+}
+
+/* Large desktop (≥992px) – final “max-width” */
+@media (min-width: 992px) {
+  .hero-section {
+    padding: 6rem 1rem 5rem;
+  }
+}
+
+/* -------------------------------------------------
+   6. DARK MODE (unchanged logic, just tighter)
+------------------------------------------------- */
+body.dark .hero-section {
+  background: rgba(30, 41, 59, 0.7);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+body.dark .hero-subtitle { color: var(--accent-color); }
+body.dark .hero-title   { color: var(--accent-color); }
+body.dark .hero-title .highlight { color: var(--highlight-color); }
+body.dark .hero-text    { color: #CBD5E1; }
+
+body.dark .btn-glass {
+  background: var(--accent-color);
+  box-shadow: 0 5px 15px rgba(14, 165, 233, 0.2);
+}
+body.dark .btn-glass:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35);
+}
+
+/* -------------------------------------------------
+   7. ACCESSIBILITY / UTILITY
+------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn-glass,
+  .hero-section { transition: none; }
+}

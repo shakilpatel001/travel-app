@@ -1,0 +1,345 @@
+/* =========================================
+   ORIGINAL CSS (100% UNCHANGED)
+========================================= */
+:root {
+  --bg-color: #f8fafc;
+  --surface-color: rgba(255, 255, 255, 0.75);
+  --text-color: #1e293b;
+  --muted-text: #64748b;
+  --accent-color: #0d6efd;
+  --accent-hover: #0b5ed7;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  pointer-events: auto; /* Allow clicking inside overlay for close */
+}
+
+.contact-form {
+  pointer-events: all; /* Allow clicks inside modal */
+  position: relative;
+}
+
+/* Glass Form */
+.glass-form {
+  background: var(--surface-color);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  padding: 2.5rem 3rem;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  color: var(--text-color);
+  box-shadow: 0 8px 30px var(--shadow-color);
+  animation: popIn 0.5s ease;
+}
+
+/* Close Button */
+.btn-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: var(--text-color);
+}
+
+/* Headings */
+.form-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-color);
+}
+
+.form-sub {
+  color: var(--muted-text);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Inputs & Textarea */
+.glass-form input,
+.glass-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.4);
+  color: var(--text-color);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.glass-form input:focus,
+.glass-form textarea:focus {
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Date Inputs */
+.date-group {
+  display: flex;
+  gap: 0.8rem;
+}
+
+/* Button */
+.btn-send {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-send:hover {
+  background: var(--accent-hover);
+  transform: scale(1.03);
+}
+
+/* Status */
+.status-msg {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--accent-color);
+}
+
+/* Animation */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES ONLY (ADDED)
+   No changes to your original CSS
+========================================= */
+
+@media (max-width: 992px) {
+  .glass-form {
+    padding: 2.25rem 2.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .form-title {
+    font-size: 1.7rem;
+  }
+
+  .form-sub {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-overlay {
+    padding: 1rem;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .glass-form {
+    width: 95%;
+    max-width: 460px;
+    padding: 2rem 2rem;
+    border-radius: 1.1rem;
+    margin-top: 3rem;
+  }
+
+  .btn-close {
+    top: 0.9rem;
+    right: 0.9rem;
+    font-size: 1.25rem;
+  }
+
+  .form-title {
+    font-size: 1.6rem;
+  }
+
+  .form-sub {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .glass-form input,
+  .glass-form textarea {
+    padding: 0.75rem 0.95rem;
+    font-size: 0.95rem;
+    border-radius: 0.75rem;
+  }
+
+  .date-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-send {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.95rem;
+    border-radius: 0.75rem;
+  }
+
+  .status-msg {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .glass-form {
+    width: 96%;
+    max-width: 420px;
+    padding: 1.8rem 1.8rem;
+    border-radius: 1rem;
+  }
+
+  .btn-close {
+    top: 0.8rem;
+    right: 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .form-sub {
+    font-size: 0.875rem;
+  }
+
+  .glass-form input,
+  .glass-form textarea {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.925rem;
+    border-radius: 0.7rem;
+  }
+
+  .btn-send {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.925rem;
+    border-radius: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-overlay {
+    padding: 0.75rem;
+  }
+
+  .glass-form {
+    width: 97%;
+    max-width: 380px;
+    padding: 1.6rem 1.6rem;
+    border-radius: 0.875rem;
+    margin-top: 2.5rem;
+  }
+
+  .form-title {
+    font-size: 1.4rem;
+  }
+
+  .form-sub {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .glass-form input,
+  .glass-form textarea {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.9rem;
+    border-radius: 0.65rem;
+  }
+
+  .btn-send {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 0.65rem;
+  }
+
+  .status-msg {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .glass-form {
+    width: 98%;
+    max-width: 340px;
+    padding: 1.4rem 1.4rem;
+    border-radius: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .btn-close {
+    top: 0.7rem;
+    right: 0.7rem;
+    font-size: 1.15rem;
+  }
+
+  .form-title {
+    font-size: 1.3rem;
+  }
+
+  .form-sub {
+    font-size: 0.8rem;
+  }
+
+  .glass-form input,
+  .glass-form textarea {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.875rem;
+    border-radius: 0.6rem;
+  }
+
+  .btn-send {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.875rem;
+    border-radius: 0.6rem;
+  }
+}
+
+/* Dark mode responsive consistency */
+@media (max-width: 768px) {
+  body.dark .contact-overlay {
+    background: rgba(15, 23, 42, 0.85);
+  }
+
+  body.dark .glass-form {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  body.dark .glass-form input,
+  body.dark .glass-form textarea {
+    background: rgba(15, 23, 42, 0.5);
+    color: #f8fafc;
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  body.dark .glass-form input:focus,
+  body.dark .glass-form textarea:focus {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: var(--accent-color);
+  }
+}

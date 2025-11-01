@@ -1,0 +1,351 @@
+/* =========================================
+   ORIGINAL CSS (UNCHANGED)
+========================================= */
+:root {
+  --bg-color: #f8fafc;
+  --surface-color: #ffffff;
+  --text-color: #1e293b;
+  --muted-text: #64748b;
+  --accent-color: #0ea5e9;
+  --accent-hover: #0284c7;
+  --highlight-color: #fbbf24;
+  --border-color: #e2e8f0;
+  --success-color: #22c55e;
+  --error-color: #ef4444;
+  --shadow-color: rgba(14, 165, 233, 0.2);
+}
+
+/* ---------- Base Layout ---------- */
+.destination-details {
+  max-width: 1000px;
+}
+
+/* ---------- Card ---------- */
+.details-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border-radius: 1.2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+.details-card:hover {
+  box-shadow: 0 10px 30px var(--shadow-color);
+  transform: translateY(-4px);
+}
+
+/* ---------- Image ---------- */
+.details-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.2rem 1.2rem 0 0;
+}
+
+.details-hero {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  filter: brightness(0.95);
+  transition: transform 0.8s ease, filter 0.5s ease;
+}
+
+.details-card:hover .details-hero {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+/* ---------- Shine Effect ---------- */
+.shine-effect {
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: skewX(-20deg);
+  opacity: 0;
+}
+
+.details-card:hover .shine-effect {
+  opacity: 1;
+  animation: shine 1.5s ease;
+}
+
+@keyframes shine {
+  0% { left: -70%; opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { left: 130%; opacity: 0; }
+}
+
+/* ---------- Glass Body ---------- */
+.glass-body {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0 0 1.2rem 1.2rem;
+  backdrop-filter: blur(10px);
+}
+
+/* ---------- Titles ---------- */
+.destination-text-color {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* ---------- Highlight & Service Cards ---------- */
+.glass-service {
+  background: rgba(14, 165, 233, 0.05);
+  border: 1px solid rgba(14, 165, 233, 0.15);
+  border-radius: 10px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.glass-service:hover {
+  background: rgba(14, 165, 233, 0.08);
+  transform: scale(1.03);
+}
+
+.highlight-item {
+  padding: 6px 0;
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateX(5px);
+  color: var(--accent-color);
+}
+
+/* ---------- Packages ---------- */
+.glass-package {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.glass-package:hover {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Small Box (Best Time) ---------- */
+.small-box {
+  background: rgba(14, 165, 233, 0.05);
+  border: 1px solid rgba(14, 165, 233, 0.15);
+  border-radius: 0.5rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn-view {
+  background: var(--accent-color);
+  color: #fff !important;
+  border: none;
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.btn-view:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3);
+}
+
+/* ---------- Dark Mode ---------- */
+body.dark .details-card {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .glass-body {
+  background: rgba(30, 41, 59, 0.6);
+}
+
+body.dark .glass-service {
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.15);
+}
+
+body.dark .highlight-item:hover {
+  color: var(--highlight-color);
+}
+
+body.dark .btn-view {
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+}
+
+body.dark .btn-view:hover {
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.4);
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES ONLY (ADDED)
+   No changes to your original CSS
+========================================= */
+
+@media (max-width: 992px) {
+  .destination-details {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .details-hero {
+    height: 320px;
+  }
+
+  .glass-service,
+  .glass-package {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .details-hero {
+    height: 260px;
+  }
+
+  .details-card {
+    border-radius: 1rem;
+  }
+
+  .details-img-wrapper {
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .glass-body {
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  .glass-service,
+  .glass-package {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .btn-view {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+  }
+
+  .highlight-item {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .destination-details {
+    padding: 0 0.75rem;
+  }
+
+  .details-hero {
+    height: 220px;
+  }
+
+  .details-card {
+    border-radius: 0.875rem;
+  }
+
+  .details-img-wrapper {
+    border-radius: 0.875rem 0.875rem 0 0;
+  }
+
+  .glass-body {
+    border-radius: 0 0 0.875rem 0.875rem;
+  }
+
+  .glass-service,
+  .glass-package {
+    padding: 0.6rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-view {
+    width: 100%;
+    font-size: 0.875rem;
+    padding: 0.55rem 1rem;
+  }
+
+  .small-box {
+    padding: 0.6rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-hero {
+    height: 200px;
+  }
+
+  .destination-details {
+    padding: 0 0.5rem;
+  }
+
+  .details-card {
+    border-radius: 0.75rem;
+  }
+
+  .details-img-wrapper {
+    border-radius: 0.75rem 0.75rem 0 0;
+  }
+
+  .glass-body {
+    border-radius: 0 0 0.75rem 0.75rem;
+  }
+
+  .glass-service,
+  .glass-package {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .btn-view {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .highlight-item {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .details-hero {
+    height: 180px;
+  }
+
+  .destination-details {
+    padding: 0 0.4rem;
+  }
+
+  .glass-service,
+  .glass-package,
+  .small-box {
+    padding: 0.45rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-view {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark mode responsive consistency */
+@media (max-width: 768px) {
+  body.dark .glass-service,
+  body.dark .glass-package {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body.dark .btn-view {
+    width: 100%;
+  }
+}
