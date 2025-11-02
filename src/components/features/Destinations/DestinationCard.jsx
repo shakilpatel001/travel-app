@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./DestinationCard.css";
 
 export default function DestinationCard({ destination }) {
+  const navigate = useNavigate();
   const hasDiscount = true;
   const discountFactor = 0.8;
 
-  // ✅ Define correct dynamic class
   let dynamicClassValue = "";
   if (destination.type === "international") {
     dynamicClassValue = "col-sm-12 col-md-6 col-lg-3 mb-4"; // 4 per row
@@ -65,13 +65,12 @@ export default function DestinationCard({ destination }) {
           </div>
 
           <div className="mt-4">
-            <Link
-              to={`/destination/${destination.id}`}
-              reloadDocument
+            <button
+              onClick={() => navigate(`/destination/${destination.id}`)}
               className="btn btn-view w-75 rounded-pill py-2 fw-semibold shadow-sm"
             >
               View Details ✈️
-            </Link>
+            </button>
           </div>
         </div>
       </div>

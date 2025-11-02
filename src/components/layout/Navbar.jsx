@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { useTheme } from "../../context/ThemeContext.jsx";
 import ContactForm from "../ContactForm/ContactForm.jsx";
 import "./Navbar.css";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,11 +21,20 @@ export default function Navbar() {
     { label: "Destinations", id: "destinations" },
     { label: "Services", id: "services" },
     { label: "Budget", id: "budget" },
-    { label: "Testimonials", id: "testimonials" },
     { label: "Contact", id: "contact" },
   ];
 
+  const closeMenu = () => {
+    const navbarCollapse = document.getElementById("navbarNav");
+    if (navbarCollapse?.classList.contains("show")) {
+      navbarCollapse.classList.remove("show");
+    }
+    setIsMenuOpen(false);
+  };
+
   const handleMenuClick = (item) => {
+    closeMenu();
+
     if (item.label === "Home") {
       navigate("/");
     } else {
@@ -37,30 +45,70 @@ export default function Navbar() {
     }
   };
 
+  const handleBookNow = () => {
+    closeMenu();
+    setShowForm(true);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+    const navbarCollapse = document.getElementById("navbarNav");
+    navbarCollapse?.classList.toggle("show");
+  };
+
   return (
     <>
       <nav
         className={`navbar navbar-expand-lg ${
-          theme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light"
-        } ${isScrolled ? "scrolled" : ""}`}
+          isScrolled ? "navbar-light bg-light scrolled shadow-sm" : "navbar-light bg-light"
+        }`}
       >
         <div className="container nav-container">
           {/* === Logo === */}
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/travel-app">
             <img src={logo} alt="Logo" className="logo" />
           </a>
 
-          {/* === Toggler === */}
+          {/* === Custom Toggler (SVG icons) === */}
           <button
-            className="navbar-toggler"
+            className="navbar-toggler border-0"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
             aria-controls="navbarNav"
-            aria-expanded="false"
+            aria-expanded={isMenuOpen}
             aria-label="Toggle navigation"
+            onClick={toggleMenu}
           >
-            <span className="navbar-toggler-icon"></span>
+            {isMenuOpen ? (
+              // ❌ Close icon (SVG)
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                fill="currentColor"
+                className="text-primary"
+                viewBox="0 0 16 16"
+              >
+                <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" strokeWidth="2" />
+              </svg>
+            ) : (
+              // ☰ Menu icon (SVG)
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                fill="currentColor"
+                className="text-primary"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M1.5 3.5h13m-13 4h13m-13 4h13"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            )}
           </button>
 
           {/* === Collapsible Menu === */}
@@ -80,20 +128,15 @@ export default function Navbar() {
                 </li>
               ))}
 
-              {/* 🌙 Toggle Theme */}
+              {/* ✈️ Book Now */}
               <li className="nav-item ms-lg-3">
                 <button
-                  className={`btn ${
-                    theme === "light"
-                      ? "btn-outline-primary"
-                      : "btn-outline-light"
-                  }`}
-                  onClick={() => setShowForm(true)}
+                  className="btn btn-outline-primary"
+                  onClick={handleBookNow}
                 >
                   ✈️ Book Now
                 </button>
               </li>
-
             </ul>
           </div>
         </div>

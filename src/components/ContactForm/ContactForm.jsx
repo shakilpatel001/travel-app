@@ -11,10 +11,11 @@ export default function ContactForm({ destination, onClose }) {
     endDate: "",
     travelers: "",
     message: "",
+    destination: "", // Added destination to formData
   });
   const [status, setStatus] = useState("");
 
-  // 🔹 Prevent background scroll when modal is open
+  // Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -29,14 +30,13 @@ export default function ContactForm({ destination, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("Sending...");
-
     emailjs
       .send(
         "YOUR_SERVICE_ID",
         "YOUR_TEMPLATE_ID",
         {
           ...formData,
-          destination: destination || "Not specified",
+          destination: destination === "Custom Destination" ? formData.destination : destination || "Not specified",
         },
         "YOUR_PUBLIC_KEY"
       )
@@ -51,6 +51,7 @@ export default function ContactForm({ destination, onClose }) {
             endDate: "",
             travelers: "",
             message: "",
+            destination: "", // Reset destination
           });
           setTimeout(onClose, 1500);
         },
@@ -66,9 +67,10 @@ export default function ContactForm({ destination, onClose }) {
         </button>
         <h3 className="form-title mb-3">Plan Your Trip 🌍</h3>
         <p className="form-sub">
-          Let’s make your journey to <strong>{destination}</strong> unforgettable!
+          Let’s make your journey to{" "}
+          <strong>{destination === "Custom Destination" ? "your destination" : destination || "Not specified"}</strong>{" "}
+          unforgettable!
         </p>
-
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -94,13 +96,20 @@ export default function ContactForm({ destination, onClose }) {
             placeholder="Phone Number"
             required
           />
-          <input
-            type="text"
-            name="destination"
-            value={destination || ""}
-            readOnly
-            placeholder="Destination"
-          />
+          {destination === "Custom Destination" ? (
+            <input
+              type="text"
+              name="destination"
+              value={formData.destination}
+              onChange={handleChange}
+              placeholder="Enter Your Destination"
+              required
+            />
+          ) : (
+            <div className="destination-display">
+              <strong>Destination:</strong> {destination || "Not specified"}
+            </div>
+          )}
           <div className="date-group">
             <input
               type="date"
@@ -130,22 +139,18 @@ export default function ContactForm({ destination, onClose }) {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            rows="4"
+            rows="3"
             placeholder="Special Requests / Message"
           />
           <button type="submit" className="btn btn-send">
             ✈️ Book Now
           </button>
         </form>
-
         {status && <p className="status-msg mt-3">{status}</p>}
       </div>
     </div>
   );
 }
-
-
-
 //  .send(
 //         "service_ydkqyap", // 🔹 Replace
 //         "template_7aw73pw", // 🔹 Replace

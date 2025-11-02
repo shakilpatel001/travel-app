@@ -1,21 +1,90 @@
 //DOMESTIC image
+// gujarat img
 import gujaratImg from "../assets/domestic/Gujrat/Statue of Unity - Gujarat, India.jfif"
+import gujaratImg1 from "../assets/domestic/Gujrat/Tent city Ran utsav.jfif"
+import gujaratImg2 from "../assets/domestic/Gujrat/Dwarka.jfif"
+import gujaratImg3 from "../assets/domestic/Gujrat/Somnath.jfif"
+
+//himachal pradesh
 import himachalImg from "../assets/domestic/Himachal/himachal.jfif"
+import himachalImg1 from "../assets/domestic/Himachal/himalaya mountain.jfif"
+import himachalImg2 from "../assets/domestic/Himachal/snow.jfif"
+import himachalImg3 from "../assets/domestic/Himachal/park.jfif"
+
+//karnataka
 import karnatakaImg from "../assets/domestic/Karnataka/Mysore Palace_.jfif"
-import kashmirImg from "../assets/domestic/Kashmir/kashmir.jfif"
-import keralaImg from "../assets/domestic/Kerala/Allapy Houseboat.jfif"
-import rajasthanImg from "../assets/domestic/Rajasthan/Jaisalmer.jfif"
+import coorgImg from "../assets/domestic/Karnataka/coorg.jfif";
+import postcardsImg from "../assets/domestic/Karnataka/Postcards from Ooty & Coonoor.jfif";
+import ootyPlaceImg from "../assets/domestic/Karnataka/This place in Ooty Tamil nadu.jfif";
+
+// Kashmir
+import kashmirImg from "../assets/domestic/Kashmir/kashmir.jfif";
+import dalLakeKashmirImg from "../assets/domestic/Kashmir/Dal Lake Kashmir.jfif";
+import kashmirvalleyImg from "../assets/domestic/Kashmir/kashmirvalley.jfif";
+import pahalgamImg from "../assets/domestic/Kashmir/pahalgam.jfif";
+
+
+// Kerala
+import keralaImg from "../assets/domestic/Kerala/Allapy Houseboat.jfif";
+import kovalamBeachImg from "../assets/domestic/Kerala/Kovalam Beach.jfif";
+import padmanabhaswamyTempleImg from "../assets/domestic/Kerala/Padmanabhaswamy Temple.jfif";
+import thekkadeyDanceImg from "../assets/domestic/Kerala/Thekkadey dance.jfif";
+
+// Rajasthan
+import rajasthanImg from "../assets/domestic/Rajasthan/Jaisalmer.jfif";
+import jaisalmerDesertImg from "../assets/domestic/Rajasthan/Jaisalmer desert.jfif";
+import kumbhalgarhImg from "../assets/domestic/Rajasthan/Kumbhalgarh.jfif";
+import hawaMahalJaipurImg from "../assets/domestic/Rajasthan/Hawa Mahal Jaipur.jfif";
 
 
 //INTERNATIONAL imgage
-import baliImg from "../assets/international/Bali/Bali.jfif"
-import dubaiImg from "../assets/international/Dubai/Burj Khalifa.jfif"
-import malaysiaImg from "../assets/international/Malaysia/Malaysia.jfif"
-import nepalImg from "../assets/international/Nepal/Nepal.jfif"
-import singaporeImg from "../assets/international/Singapore/Gerden by the bay.jfif"
-import srilankaImg from "../assets/international/srilanka/Srilanka.jfif"
-import thailandImg from "../assets/international/Thailand/Phuket.jfif"
-import vietnamImg from "../assets/international/Vietnam/Halong Bay.jfif"
+// Bali
+import baliImg from "../assets/international/Bali/Bali.jfif";
+import baliNatureImg from "../assets/international/Bali/bali nature.jfif";
+import baliBeachImg from "../assets/international/Bali/Bali beach.jfif";
+import poolVillaImg from "../assets/international/Bali/pool villa.jfif";
+
+// Dubai
+import dubaiImg from "../assets/international/Dubai/Burj Khalifa.jfif";
+import dubaiPalmImg from "../assets/international/Dubai/Dubai Palm.jfif";
+import dubaiPalmJumirahImg from "../assets/international/Dubai/Dubai Palm jumirah.jfif";
+import dubaiDesertImg from "../assets/international/Dubai/Dubai Desert.jfif";
+
+// Malaysia
+import malaysiaImg from "../assets/international/Malaysia/Malaysia.jfif";
+import twinTowerImg from "../assets/international/Malaysia/Twin tower.jfif";
+import langkawiImg from "../assets/international/Malaysia/langkawi.jfif";
+import kualalumpurImg from "../assets/international/Malaysia/Kualalumpur.jfif";
+
+// Nepal
+import nepalImg from "../assets/international/Nepal/Nepal.jfif";
+import nepalMountainImg from "../assets/international/Nepal/Nepal mountain.jfif";
+import nepalTempleImg from "../assets/international/Nepal/Nepal Temple.jfif";
+import nepal1Img from "../assets/international/Nepal/Nepal1.jfif";
+
+// Singapore
+import singaporeImg from "../assets/international/Singapore/Gerden by the bay.jfif";
+import marinaBayImg from "../assets/international/Singapore/Marina Bay.jfif";
+import merlionImg from "../assets/international/Singapore/Merlion.jfif";
+import singaporeSentosaImg from "../assets/international/Singapore/Singapore sentosa.jfif";
+
+// Sri Lanka
+import srilankaImg from "../assets/international/srilanka/Srilanka.jfif";
+import srilanka1Img from "../assets/international/srilanka/Srilanka1.jfif";
+import srilanka2Img from "../assets/international/srilanka/Srilanka2.jfif";
+import srilanka3Img from "../assets/international/srilanka/Srilanka3.jfif";
+
+// Thailand
+import thailandImg from "../assets/international/Thailand/Phuket.jfif";
+import phiPhiIslandImg from "../assets/international/Thailand/Phi phi Isaland.jfif";
+import krabiImg from "../assets/international/Thailand/Krabi.jfif";
+import bangkok2Img from "../assets/international/Thailand/Bangkok2.jfif";
+
+// Vietnam
+import vietnamImg from "../assets/international/Vietnam/Halong Bay.jfif";
+import hanoiImg from "../assets/international/Vietnam/hanoi.jfif";
+import danangImg from "../assets/international/Vietnam/Danang.jfif";
+import hoChiMinhImg from "../assets/international/Vietnam/Ho chi minh.jfif";
 
 
 export const destinations = [
@@ -23,7 +92,7 @@ export const destinations = [
   {
     id: "dom-gujarat-6d4f2b19",
     name: "Gujarat",
-    imgUrl:gujaratImg,
+    imgUrl: gujaratImg,
     description:
       "Gujarat, the land of legends, is known for its vibrant culture, ancient temples, white desert, and heritage cities.",
     packages: [
@@ -42,12 +111,19 @@ export const destinations = [
       "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
       "Hotels", "Flights", "Visa", "Cabs"
     ],
+    destinationImage: [
+      { image: gujaratImg, placeName: "Statue of Unity" },
+      { image: gujaratImg1, placeName: "Tent city Ran utsav" },
+      { image: gujaratImg2, placeName: "Dwarka" },
+      { image: gujaratImg3, placeName: "Somnath" },
+    ],
+
     type: "domestic",
   },
   {
     id: "dom-himachal-5e1a6c44",
     name: "Himachal Pradesh",
-    imgUrl:himachalImg,
+    imgUrl: himachalImg,
     description:
       "Himachal Pradesh is known for its snow-capped mountains, hill stations, and adventure sports.",
     packages: [
@@ -67,12 +143,18 @@ export const destinations = [
       "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
       "Hotels", "Flights", "Visa", "Cabs"
     ],
+    destinationImage: [
+      { image: himachalImg, placeName: "Himachal" },
+      { image: himachalImg1, placeName: "Himalaya mountain" },
+      { image: himachalImg2, placeName: "Snow" },
+      { image: himachalImg3, placeName: "Park" },
+    ],
     type: "domestic",
   },
   {
     id: "dom-karnataka-7b9c3f18",
     name: "Karnataka",
-    imgUrl:karnatakaImg,
+    imgUrl: karnatakaImg,
     description:
       "Karnataka is known for its heritage cities, temples, coffee plantations, and stunning waterfalls.",
     packages: [
@@ -91,12 +173,18 @@ export const destinations = [
       "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
       "Hotels", "Flights", "Visa", "Cabs"
     ],
+    destinationImage: [
+      { image: karnatakaImg, placeName: "Coorg" },
+      { image: coorgImg, placeName: "Coorg" },
+      { image: postcardsImg, placeName: "Postcards from Ooty & Coonoor" },
+      { image: ootyPlaceImg, placeName: "This place in Ooty Tamil nadu" },
+    ],
     type: "domestic",
   },
   {
     id: "dom-kashmir-7d3f8a19",
     name: "Kashmir",
-    imgUrl:kashmirImg,
+    imgUrl: kashmirImg,
     description:
       "Kashmir is known as 'Paradise on Earth', offering snow, shikaras, and breathtaking valleys.",
     packages: [
@@ -116,12 +204,18 @@ export const destinations = [
       "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
       "Hotels", "Flights", "Visa", "Cabs"
     ],
+    destinationImage: [
+      { image: kashmirImg, placeName: "Kashmir" },
+      { image: dalLakeKashmirImg, placeName: "Dal Lake Kashmir" },
+      { image: kashmirvalleyImg, placeName: "Kashmir Valley" },
+      { image: pahalgamImg, placeName: "Pahalgam" },
+    ],
     type: "domestic",
   },
   {
     id: "dom-kerala-9a7c4e19",
     name: "Kerala",
-    imgUrl:keralaImg,
+    imgUrl: keralaImg,
     description:
       "Kerala, known as 'God's Own Country', offers houseboats, backwaters, and lush green landscapes.",
     packages: [
@@ -140,12 +234,18 @@ export const destinations = [
       "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
       "Hotels", "Flights", "Visa", "Cabs"
     ],
+    destinationImage: [
+      { image: keralaImg, placeName: "Allapy Houseboat" },
+      { image: kovalamBeachImg, placeName: "Kovalam Beach" },
+      { image: padmanabhaswamyTempleImg, placeName: "Padmanabhaswamy Temple" },
+      { image: thekkadeyDanceImg, placeName: "Thekkadey dance" },
+    ],
     type: "domestic",
   },
   {
     id: "dom-rajasthan-6c9f7b25",
     name: "Rajasthan",
-    imgUrl:rajasthanImg,
+    imgUrl: rajasthanImg,
     description:
       "Rajasthan, the land of kings, is famous for its majestic forts, palaces, and vibrant culture.",
     packages: [
@@ -164,6 +264,12 @@ export const destinations = [
       "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
       "Hotels", "Flights", "Visa", "Cabs"
     ],
+    destinationImage: [
+      { image: rajasthanImg, placeName: "Jaisalmer" },
+      { image: jaisalmerDesertImg, placeName: "Jaisalmer Desert" },
+      { image: kumbhalgarhImg, placeName: "Kumbhalgarh" },
+      { image: hawaMahalJaipurImg, placeName: "Hawa Mahal Jaipur" },
+    ],
     type: "domestic",
   },
 
@@ -171,7 +277,7 @@ export const destinations = [
   {
     id: "intl-bali-8f2c7b13",
     name: "Bali, Indonesia",
-    imgUrl:baliImg,
+    imgUrl: baliImg,
     description:
       "Bali is a dream destination with rice terraces, temples, beaches, and vibrant nightlife.",
     packages: [
@@ -190,12 +296,18 @@ export const destinations = [
       "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
       "Hotels", "Flights", "Visa", "Cabs"
     ],
+    destinationImage: [
+      { image: baliImg, placeName: "Bali" },
+      { image: baliNatureImg, placeName: "Bali Nature" },
+      { image: baliBeachImg, placeName: "Bali Beach" },
+      { image: poolVillaImg, placeName: "Pool Villa" },
+    ],
     type: "international",
   },
   {
     id: "intl-dubai-12a94e0f",
     name: "Dubai, UAE",
-    imgUrl:dubaiImg,
+    imgUrl: dubaiImg,
     description:
       "Dubai is a city of luxury, known for its skyscrapers, shopping malls, and desert adventures.",
     packages: [
@@ -214,12 +326,18 @@ export const destinations = [
       "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
       "Hotels", "Flights", "Visa", "Cabs"
     ],
+    destinationImage: [
+      { image: dubaiImg, placeName: "Burj Khalifa" },
+      { image: dubaiPalmImg, placeName: "Dubai Palm" },
+      { image: dubaiPalmJumirahImg, placeName: "Dubai Palm Jumirah" },
+      { image: dubaiDesertImg, placeName: "Dubai Desert" },
+    ],
     type: "international",
   },
   {
     id: "intl-malaysia-2e5b9f24",
     name: "Malaysia",
-    imgUrl:malaysiaImg,
+    imgUrl: malaysiaImg,
     description:
       "Malaysia offers tropical beaches, rainforests, and a fusion of modern cities and cultural heritage.",
     packages: [
@@ -238,12 +356,18 @@ export const destinations = [
       "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
       "Hotels", "Flights", "Visa", "Cabs"
     ],
+    destinationImage: [
+      { image: malaysiaImg, placeName: "Malaysia" },
+      { image: twinTowerImg, placeName: "Twin Tower" },
+      { image: langkawiImg, placeName: "Langkawi" },
+      { image: kualalumpurImg, placeName: "Kuala Lumpur" },
+    ],
     type: "international",
   },
   {
     id: "intl-nepal-3b8c7d91",
     name: "Nepal",
-    imgUrl:nepalImg,
+    imgUrl: nepalImg,
     description:
       "Nepal, home to the Himalayas, offers trekking, spiritual temples, and breathtaking mountain views.",
     packages: [
@@ -258,12 +382,22 @@ export const destinations = [
       "Pokhara’s lakeside views",
       "Himalayan trekking routes",
     ],
+    services: [
+      "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
+      "Hotels", "Flights", "Visa", "Cabs"
+    ],
+    destinationImage: [
+      { image: nepalImg, placeName: "Nepal" },
+      { image: nepalMountainImg, placeName: "Nepal Mountain" },
+      { image: nepalTempleImg, placeName: "Nepal Temple" },
+      { image: nepal1Img, placeName: "Nepal1" },
+    ],
     type: "international",
   },
   {
     id: "intl-singapore-9a6f5e8b",
     name: "Singapore",
-    imgUrl:singaporeImg,
+    imgUrl: singaporeImg,
     description:
       "Singapore is a modern city-state offering iconic landmarks, futuristic gardens, and vibrant nightlife.",
     packages: [
@@ -278,12 +412,22 @@ export const destinations = [
       "Sentosa Island",
       "Hawker centers & nightlife",
     ],
+    services: [
+      "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
+      "Hotels", "Flights", "Visa", "Cabs"
+    ],
+    destinationImage: [
+      { image: singaporeImg, placeName: "Gerden by the Bay" },
+      { image: marinaBayImg, placeName: "Marina Bay" },
+      { image: merlionImg, placeName: "Merlion" },
+      { image: singaporeSentosaImg, placeName: "Singapore Sentosa" },
+    ],
     type: "international",
   },
   {
     id: "intl-srilanka-6f1c3a5e",
     name: "Sri Lanka",
-    imgUrl:srilankaImg,
+    imgUrl: srilankaImg,
     description:
       "Sri Lanka offers golden beaches, lush tea gardens, wildlife safaris, and ancient ruins.",
     packages: [
@@ -298,12 +442,22 @@ export const destinations = [
       "Golden beaches",
       "Wildlife safaris",
     ],
+    services: [
+      "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
+      "Hotels", "Flights", "Visa", "Cabs"
+    ],
+    destinationImage: [
+      { image: srilankaImg, placeName: "Sri Lanka" },
+      { image: srilanka1Img, placeName: "Sri Lanka 1" },
+      { image: srilanka2Img, placeName: "Sri Lanka 2" },
+      { image: srilanka3Img, placeName: "Sri Lanka 3" },
+    ],
     type: "international",
   },
   {
     id: "intl-thailand-7e4d8a2b",
     name: "Thailand",
-    imgUrl:thailandImg,
+    imgUrl: thailandImg,
     description:
       "Thailand, the Land of Smiles, is famous for its beaches, temples, and buzzing street markets.",
     packages: [
@@ -318,12 +472,22 @@ export const destinations = [
       "Chiang Mai temples",
       "Thai street food",
     ],
+    services: [
+      "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
+      "Hotels", "Flights", "Visa", "Cabs"
+    ],
+    destinationImage: [
+      { image: thailandImg, placeName: "Phuket" },
+      { image: phiPhiIslandImg, placeName: "Phi Phi Island" },
+      { image: krabiImg, placeName: "Krabi" },
+      { image: bangkok2Img, placeName: "Bangkok 2" },
+    ],
     type: "international",
   },
   {
     id: "intl-vietnam-5d9f3b7e",
     name: "Vietnam",
-    imgUrl:vietnamImg,
+    imgUrl: vietnamImg,
     description:
       "Vietnam combines stunning natural beauty with rich history, delicious cuisine, and warm hospitality.",
     packages: [
@@ -337,6 +501,16 @@ export const destinations = [
       "Hoi An Ancient Town",
       "Vietnamese cuisine",
       "Cu Chi Tunnels & Mekong Delta",
+    ],
+    services: [
+      "Holiday Packages", "Corporate Travel", "Honeymoon Packages", "Group Tours",
+      "Hotels", "Flights", "Visa", "Cabs"
+    ],
+    destinationImage: [
+      { image: vietnamImg, placeName: "Halong Bay" },
+      { image: hanoiImg, placeName: "Hanoi" },
+      { image: danangImg, placeName: "Danang" },
+      { image: hoChiMinhImg, placeName: "Ho Chi Minh" },
     ],
     type: "international",
   },

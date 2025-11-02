@@ -1,13 +1,35 @@
 import logo from "../../assets/logo.png";
+
+//DOMESTIC image
+import gujaratImg from ".././../assets/domestic/Gujrat/Statue of Unity - Gujarat, India.jfif"
+import himachalImg from ".././../assets/domestic/Himachal/himachal.jfif"
+import karnatakaImg from ".././../assets/domestic/Karnataka/Mysore Palace_.jfif"
+import kashmirImg from ".././../assets/domestic/Kashmir/kashmir.jfif"
+import keralaImg from ".././../assets/domestic/Kerala/Allapy Houseboat.jfif"
+import rajasthanImg from ".././../assets/domestic/Rajasthan/Jaisalmer.jfif"
+
+
+//INTERNATIONAL imgage
+import baliImg from ".././../assets/international/Bali/Bali.jfif"
+import dubaiImg from ".././../assets/international/Dubai/Burj Khalifa.jfif"
+import malaysiaImg from ".././../assets/international/Malaysia/Malaysia.jfif"
+import nepalImg from ".././../assets/international/Nepal/Nepal.jfif"
+import singaporeImg from ".././../assets/international/Singapore/Gerden by the bay.jfif"
+import srilankaImg from ".././../assets/international/srilanka/Srilanka.jfif"
+import thailandImg from ".././../assets/international/Thailand/Phuket.jfif"
+import vietnamImg from ".././../assets/international/Vietnam/Halong Bay.jfif"
 import "./Footer.css";
 
 const tripImages = [
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=160",
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=160",
-  "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=160",
-  "https://images.unsplash.com/photo-1519985176271-43a9fa22d67f?w=160",
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=160",
-  "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=160",
+  dubaiImg,
+  himachalImg,
+  nepalImg,
+  singaporeImg,
+  rajasthanImg,
+  baliImg,
+  kashmirImg,
+  vietnamImg,
+  thailandImg
 ];
 
 export default function Footer() {
@@ -20,7 +42,7 @@ export default function Footer() {
             <img
               src={logo}
               alt="Logo"
-              className="footer-logo mb-4"
+              className="footer-logo"
               loading="lazy"
             />
             <h5>Company Info</h5>

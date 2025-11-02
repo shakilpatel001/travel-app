@@ -1,8 +1,9 @@
 /* =========================================
-   ORIGINAL CSS (UNCHANGED)
+   DestinationDetails.css (Updated)
 ========================================= */
+
 :root {
-  --bg-color: #f8fafc;
+  --bg-color: #f0f4f8;
   --surface-color: #ffffff;
   --text-color: #1e293b;
   --muted-text: #64748b;
@@ -18,6 +19,8 @@
 /* ---------- Base Layout ---------- */
 .destination-details {
   max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---------- Card ---------- */
@@ -36,24 +39,77 @@
   transform: translateY(-4px);
 }
 
-/* ---------- Image ---------- */
+/* ---------- Image Grid ---------- */
+.details-img-grid {
+  padding: 0;
+}
+
 .details-img-wrapper {
   position: relative;
   overflow: hidden;
-  border-radius: 1.2rem 1.2rem 0 0;
+  border-radius: 1rem;
+  aspect-ratio: 3 / 2; /* Consistent aspect ratio for images */
+  margin-bottom: 1rem;
 }
 
-.details-hero {
+.details-img {
   width: 100%;
-  height: 380px;
-  object-fit: cover;
-  filter: brightness(0.95);
+  height: 100%;
+  object-fit: fill;
   transition: transform 0.8s ease, filter 0.5s ease;
+  filter: brightness(0.9);
 }
 
-.details-card:hover .details-hero {
-  transform: scale(1.05);
-  filter: brightness(1.05);
+.details-img-wrapper:hover .details-img {
+  transform: scale(1.1); /* Zoom effect on hover */
+  filter: brightness(1);
+}
+
+/* ---------- Gradient Overlay ---------- */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.details-img-wrapper:hover .gradient-overlay {
+  opacity: 0.3;
+}
+
+/* ---------- Glass Caption ---------- */
+.glass-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.glass-caption .city-name {
+  margin: 0;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.details-img-wrapper:hover .glass-caption {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-5px);
 }
 
 /* ---------- Shine Effect ---------- */
@@ -63,14 +119,15 @@
   left: -70%;
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.3);
   transform: skewX(-20deg);
   opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.details-card:hover .shine-effect {
+.details-img-wrapper:hover .shine-effect {
   opacity: 1;
-  animation: shine 1.5s ease;
+  animation: shine 1.2s ease;
 }
 
 @keyframes shine {
@@ -184,21 +241,41 @@ body.dark .btn-view:hover {
   box-shadow: 0 6px 18px rgba(14, 165, 233, 0.4);
 }
 
-/* =========================================
-   RESPONSIVE MEDIA QUERIES ONLY (ADDED)
-   No changes to your original CSS
-========================================= */
+body.dark .glass-caption {
+  background: rgba(30, 41, 59, 0.85);
+  color: #ffffff;
+}
 
+body.dark .details-img-wrapper:hover .glass-caption {
+  background: rgba(30, 41, 59, 0.95);
+}
+
+body.dark .gradient-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+/* ---------- Mobile Fix: Always show city name ---------- */
+@media (hover: none), (max-width: 768px) {
+  .glass-caption {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    background: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* ---------- Responsive Media Queries ---------- */
 @media (max-width: 992px) {
   .destination-details {
     max-width: 100%;
     padding: 0 1rem;
   }
-
-  .details-hero {
-    height: 320px;
+  .details-img-wrapper {
+    aspect-ratio: 3 / 2;
   }
-
   .glass-service,
   .glass-package {
     padding: 0.8rem;
@@ -206,146 +283,14 @@ body.dark .btn-view:hover {
 }
 
 @media (max-width: 768px) {
-  .details-hero {
-    height: 260px;
+  .details-img-wrapper {
+    aspect-ratio: 4 / 3;
   }
-
   .details-card {
     border-radius: 1rem;
   }
-
-  .details-img-wrapper {
-    border-radius: 1rem 1rem 0 0;
-  }
-
-  .glass-body {
-    border-radius: 0 0 1rem 1rem;
-  }
-
-  .glass-service,
-  .glass-package {
-    font-size: 0.9rem;
-    padding: 0.7rem;
-  }
-
   .btn-view {
-    font-size: 0.9rem;
     padding: 0.5rem 1.2rem;
-  }
-
-  .highlight-item {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .destination-details {
-    padding: 0 0.75rem;
-  }
-
-  .details-hero {
-    height: 220px;
-  }
-
-  .details-card {
-    border-radius: 0.875rem;
-  }
-
-  .details-img-wrapper {
-    border-radius: 0.875rem 0.875rem 0 0;
-  }
-
-  .glass-body {
-    border-radius: 0 0 0.875rem 0.875rem;
-  }
-
-  .glass-service,
-  .glass-package {
-    padding: 0.6rem;
-    font-size: 0.875rem;
-  }
-
-  .btn-view {
-    width: 100%;
-    font-size: 0.875rem;
-    padding: 0.55rem 1rem;
-  }
-
-  .small-box {
-    padding: 0.6rem;
-    font-size: 0.875rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .details-hero {
-    height: 200px;
-  }
-
-  .destination-details {
-    padding: 0 0.5rem;
-  }
-
-  .details-card {
-    border-radius: 0.75rem;
-  }
-
-  .details-img-wrapper {
-    border-radius: 0.75rem 0.75rem 0 0;
-  }
-
-  .glass-body {
-    border-radius: 0 0 0.75rem 0.75rem;
-  }
-
-  .glass-service,
-  .glass-package {
-    padding: 0.5rem;
-    font-size: 0.85rem;
-  }
-
-  .btn-view {
-    padding: 0.5rem 0.9rem;
-    font-size: 0.85rem;
-  }
-
-  .highlight-item {
     font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .details-hero {
-    height: 180px;
-  }
-
-  .destination-details {
-    padding: 0 0.4rem;
-  }
-
-  .glass-service,
-  .glass-package,
-  .small-box {
-    padding: 0.45rem;
-    font-size: 0.8rem;
-  }
-
-  .btn-view {
-    padding: 0.45rem 0.8rem;
-    font-size: 0.8rem;
-  }
-}
-
-/* Dark mode responsive consistency */
-@media (max-width: 768px) {
-  body.dark .glass-service,
-  body.dark .glass-package {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  body.dark .btn-view {
-    width: 100%;
   }
 }

@@ -33,11 +33,13 @@
    LOGO
 ========================================= */
 .footer-logo {
-  height: 6rem; /* ⬅️ Keep original size */
+  margin-top: -2rem;
+  height: 10rem; /* ⬅️ Keep original size */
   width: auto;
   display: block;
   object-fit: contain;
   opacity: 0.95;
+  mix-blend-mode: multiply;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -109,14 +111,14 @@ footer p {
 ========================================= */
 .trip-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
   gap: 0.8rem;
 }
 
 .trip-grid img {
   width: 100%;
   height: 80px;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 8px;
   border: 1px solid var(--border-color);
   filter: brightness(0.92);
@@ -152,6 +154,8 @@ footer small {
 
   .footer-logo {
     margin: 0 auto 1.5rem;
+            margin-bottom: -1rem;
+
   }
 
   footer h5::after {
@@ -165,7 +169,7 @@ footer small {
   }
 
   .trip-grid {
-    grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   }
 }
 
